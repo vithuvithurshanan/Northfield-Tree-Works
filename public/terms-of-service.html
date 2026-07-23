@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Terms of Service | Northfield Tree Works</title>
+<title>Terms & Conditions | Northfield Tree Works</title>
 <style>
   :root { color-scheme: dark; }
   * { box-sizing: border-box; }
@@ -14,163 +14,308 @@
     color: #f1f5f9;
     line-height: 1.7;
   }
-  header {
-    background: rgba(6, 78, 59, 0.9);
+  header.site-header {
+    background: rgba(6, 78, 59, 0.92);
     border-bottom: 1px solid rgba(255,255,255,0.12);
-    padding: 18px 24px;
+    padding: 14px 24px;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    backdrop-filter: blur(12px);
+  }
+  .header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
   }
-  header a.brand {
-    color: #fff;
-    text-decoration: none;
-    font-weight: 800;
-    font-size: 1.1rem;
-    letter-spacing: -0.02em;
-  }
-  header a.brand span { color: #A3E635; }
-  header a.back {
+  a.brand-logo { display: flex; align-items: center; gap: 8px; text-decoration: none; }
+  .logo-chip { height: 44px; width: auto; display: block; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.35)); }
+  .brand-name { color: #A3E635; font-weight: 800; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.03em; }
+  nav.top-nav { display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
+  nav.top-nav a { color: #e2e8f0; text-decoration: none; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.02em; }
+  nav.top-nav a:hover { color: #A3E635; }
+  a.call-btn {
+    display: flex; align-items: center; gap: 8px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(163,230,53,0.3);
     color: #A3E635;
     text-decoration: none;
-    font-size: 0.85rem;
-    font-weight: 700;
-  }
-  main {
-    max-width: 820px;
-    margin: 0 auto;
-    padding: 48px 24px 96px;
-  }
-  h1 {
-    font-size: 2rem;
     font-weight: 800;
-    margin-bottom: 4px;
+    font-size: 0.8rem;
+    padding: 8px 14px;
+    border-radius: 12px;
+    white-space: nowrap;
   }
-  .updated {
-    color: #A3E635;
-    font-size: 0.85rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-bottom: 32px;
-  }
-  h2 {
-    font-size: 1.25rem;
-    font-weight: 800;
-    margin-top: 40px;
-    margin-bottom: 10px;
-    color: #A3E635;
-  }
+  main { max-width: 820px; margin: 0 auto; padding: 48px 24px 96px; }
+  h1 { font-size: 2rem; font-weight: 800; margin-bottom: 4px; }
+  .updated { color: #A3E635; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 32px; }
+  .intro { color: #e2e8f0; font-size: 0.95rem; margin-bottom: 8px; }
+  h2 { font-size: 1.25rem; font-weight: 800; margin-top: 40px; margin-bottom: 10px; color: #A3E635; }
+  h3 { font-size: 0.95rem; font-weight: 800; margin-top: 22px; margin-bottom: 6px; color: #fff; }
   p, li { color: #e2e8f0; font-size: 0.95rem; }
   ul { padding-left: 20px; }
   li { margin-bottom: 6px; }
   strong { color: #fff; }
-  .callout {
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(163,230,53,0.3);
-    border-radius: 16px;
-    padding: 18px 20px;
-    margin: 20px 0;
-  }
+  .callout { background: rgba(255,255,255,0.06); border: 1px solid rgba(163,230,53,0.3); border-radius: 16px; padding: 18px 20px; margin: 20px 0; }
   a { color: #A3E635; }
-  footer {
-    text-align: center;
-    padding: 24px;
-    font-size: 0.8rem;
-    color: #94a3b8;
-    border-top: 1px solid rgba(255,255,255,0.08);
+  .contact-block p { margin: 2px 0; }
+
+  footer.site-footer {
+    background: rgba(255,255,255,0.03);
+    border-top: 1px solid rgba(255,255,255,0.15);
+    padding: 56px 24px 32px;
+    margin-top: 40px;
   }
+  .footer-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 36px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  @media (max-width: 900px) { .footer-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px) { .footer-grid { grid-template-columns: 1fr; } }
+  .footer-col h4 { font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; color: #fff; margin: 0 0 12px; }
+  .footer-col p { font-size: 0.8rem; color: #cbd5e1; }
+  .footer-col ul { list-style: none; padding: 0; margin: 0; }
+  .footer-col ul li { font-size: 0.8rem; margin-bottom: 8px; }
+  .footer-col ul li a { color: #cbd5e1; text-decoration: none; }
+  .footer-col ul li a:hover { color: #A3E635; }
+  .brand-col .brand-row { display: flex; align-items: center; gap: 8px; margin-bottom: 14px; }
+  .brand-col .brand-row span { color: #fff; font-size: 1.15rem; font-weight: 800; letter-spacing: -0.01em; }
+  .insurance, .address { display: flex; align-items: center; gap: 6px; font-size: 0.78rem; margin-top: 10px; }
+  .insurance { color: #A3E635; font-weight: 700; }
+  .address { color: #cbd5e1; }
+  .dispatch-card {
+    display: block;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 16px;
+    padding: 16px;
+    text-decoration: none;
+  }
+  .dispatch-label { color: #fca5a5; font-size: 0.7rem; font-weight: 800; margin-bottom: 4px; }
+  .dispatch-number { color: #A3E635; font-size: 1.1rem; font-weight: 800; }
+  .dispatch-sub { color: #cbd5e1; font-size: 0.68rem; margin-top: 2px; }
+  .footer-bottom {
+    max-width: 1200px;
+    margin: 24px auto 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    font-size: 0.78rem;
+    color: #94a3b8;
+  }
+  .footer-bottom a { color: #94a3b8; text-decoration: none; }
+  .footer-bottom a:hover { color: #fff; }
 </style>
 </head>
 <body>
-  <header>
-    <a class="brand" href="/">Northfield <span>Tree Works</span></a>
-    <a class="back" href="/">&larr; Back to Home</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand-logo" href="/">
+        <img src="/logo-icon.webp" alt="Northfield Tree Works" class="logo-chip" />
+        <span class="brand-name">Northfield Tree Service</span>
+      </a>
+      <nav class="top-nav">
+        <a href="/#hero">Home</a>
+        <a href="/#services">Service</a>
+        <a href="/#gallery">Gallery</a>
+        <a href="/#about">About</a>
+        <a href="/#contact">Contact</a>
+      </nav>
+      <a class="call-btn" href="tel:7164123623">&#128222; (716) 412-3623</a>
+    </div>
   </header>
 
   <main>
-    <h1>Terms of Service</h1>
-    <div class="updated">Effective Date: July 22, 2026</div>
+    <h1>Terms & Conditions</h1>
+    <div class="updated">Effective Date: July 22, 2026 &nbsp;|&nbsp; Last Updated: July 23, 2026</div>
 
-    <p>
-      These Terms of Service ("Terms") govern your use of the Northfield Tree Works website
-      (the "Site") and any SMS/text messaging program you opt in to. By using the Site or
-      submitting your information through our contact form, you agree to these Terms.
+    <p class="intro">
+      Welcome to Northfield Tree Works. By accessing this website or using our services, you agree to
+      be bound by these Terms and Conditions. If you do not agree with any part of these terms, please
+      do not use our website or services.
     </p>
 
-    <h2>1. Our Services</h2>
+    <h2>1. Business Identity</h2>
     <p>
-      Northfield Tree Works provides residential and commercial arborist services, including tree
-      trimming and pruning, tree removal, stump grinding, emergency storm response, and tree health
-      inspections. Quotes provided through the Site are estimates only; final pricing is confirmed
-      after an on-site assessment.
+      These Terms and Conditions govern your use of the services provided by Northfield Tree Works,
+      located at 273 Nottingham Terrace, Buffalo, NY 14216. Contact:
+      <a href="tel:7164123623">(716) 412-3623</a>.
     </p>
 
-    <h2>2. SMS Messaging Program</h2>
-    <div class="callout">
-      <p><strong>Program name:</strong> Northfield Tree Works Customer Updates</p>
-      <p><strong>How you opt in:</strong> By submitting your phone number through our website contact
-      form (or otherwise providing express consent), you agree to receive SMS text messages from
-      Northfield Tree Works related to your service request, appointment reminders, crew dispatch/arrival
-      updates, and, if you separately opt in, promotional offers.</p>
-      <p><strong>Message frequency:</strong> Varies based on your service activity (e.g., appointment
-      and dispatch updates); promotional messages, if opted in, may recur periodically.</p>
-      <p><strong>Message and data rates may apply.</strong></p>
-      <p><strong>Opt-out:</strong> Reply <strong>STOP</strong> to any message at any time to unsubscribe.
-      You will receive one final confirmation message.</p>
-      <p><strong>Help:</strong> Reply <strong>HELP</strong> to any message, or contact us at
-      <a href="tel:5558733328">(555) 873-3328</a> for assistance.</p>
-      <p><strong>Carriers are not liable</strong> for delayed or undelivered messages.</p>
-    </div>
+    <h2>2. Age Requirement (18+)</h2>
     <p>
-      For details on how your information is collected and used, see our
-      <a href="/privacy-policy.html">Privacy Policy</a>.
+      By using this website or enrolling in our services, including SMS messaging, you confirm that
+      you are at least 18 years of age. Our SMS program is not directed to individuals under 18.
     </p>
 
-    <h2>3. Quotes, Scheduling & Cancellations</h2>
+    <h2>3. Terminology</h2>
+    <p>
+      "Client," "You," and "Your" refers to the user of this website. "The Company," "We," "Our," and
+      "Us" refers to Northfield Tree Works.
+    </p>
+
+    <h2>4. SMS Messaging Terms of Service</h2>
+
+    <h3>4a. Program Description & Message Types</h3>
+    <p>
+      By providing your phone number and checking the SMS consent checkbox on our contact forms, you
+      agree to receive recurring automated text messages from Northfield Tree Works. Messages may include:
+    </p>
     <ul>
-      <li>Estimates submitted through the Site's quote tools are non-binding until confirmed in writing or by an on-site arborist.</li>
-      <li>Emergency/storm response requests are prioritized based on severity and crew availability; response-time estimates are not guaranteed.</li>
-      <li>You may reschedule or cancel a scheduled service by contacting us directly; cancellation policies will be confirmed at time of booking.</li>
+      <li>Free estimate confirmations and scheduling notifications</li>
+      <li>Appointment reminders and project status updates</li>
+      <li>Customer support and service follow-up communications</li>
+      <li>Promotional offers and seasonal announcements related to our tree care services</li>
     </ul>
 
-    <h2>4. Acceptable Use</h2>
+    <h3>4b. Message Frequency</h3>
     <p>
-      You agree not to misuse the Site, including submitting false information, attempting to disrupt
-      Site functionality, or using the Site for any unlawful purpose.
+      Message frequency varies based on your service activity and interactions with us. You may
+      receive up to 4&ndash;8 messages per month. Frequency may increase during active service periods.
     </p>
 
-    <h2>5. Disclaimers</h2>
+    <h3>4c. Message & Data Rates</h3>
     <p>
-      The Site and any content on it are provided "as is" without warranties of any kind. While we
-      strive for accuracy, service descriptions, pricing estimates, and availability shown on the Site
-      may change without notice.
+      Message and data rates may apply for any messages sent to you from us and to us from you. Charges
+      are determined by your mobile carrier and your individual service plan. Northfield Tree Works is
+      not responsible for any carrier charges.
     </p>
 
-    <h2>6. Limitation of Liability</h2>
+    <h3>4d. How to Opt Out (STOP)</h3>
     <p>
-      To the fullest extent permitted by law, Northfield Tree Works is not liable for any indirect,
-      incidental, or consequential damages arising from your use of the Site or reliance on estimates
-      provided through it. Nothing in these Terms limits liability arising from services actually
-      performed under a signed service agreement, which is governed separately.
+      You can opt out of receiving SMS messages at any time by replying <strong>STOP</strong> to any
+      message we send. After opting out, you will receive a one-time confirmation message and will no
+      longer receive SMS messages from us unless you re-enroll.
     </p>
 
-    <h2>7. Changes to These Terms</h2>
+    <h3>4e. How to Get Help (HELP)</h3>
+    <div class="callout contact-block">
+      <p>For help with our SMS program, reply <strong>HELP</strong> to any message or contact us directly at:</p>
+      <p>Phone: <a href="tel:7164123623">(716) 412-3623</a></p>
+    </div>
+
+    <h3>4f. Carrier Liability Disclaimer</h3>
     <p>
-      We may update these Terms from time to time. Continued use of the Site after changes are posted
-      constitutes acceptance of the revised Terms.
+      Mobile carriers are not liable for delayed or undelivered messages. Northfield Tree Works cannot
+      guarantee delivery of SMS messages. Delivery of information through SMS may be subject to your
+      mobile carrier's capability and coverage area.
     </p>
 
-    <h2>8. Contact Us</h2>
+    <h3>4g. Supported Carriers</h3>
     <p>
-      <strong>Northfield Tree Works</strong><br />
-      Phone: <a href="tel:5558733328">(555) 873-3328</a><br />
-      Service Area: Greater Metro County (50-mile radius)
+      Our SMS program is supported by all major U.S. wireless carriers including AT&amp;T, Verizon,
+      T-Mobile, and Sprint. Not all carriers are supported for all messages.
     </p>
+
+    <h2>5. Cookies</h2>
+    <p>We use cookies in accordance with our <a href="/privacy-policy.html">Privacy Policy</a> to improve user experience and website functionality.</p>
+
+    <h2>6. Intellectual Property & License</h2>
+    <p>
+      Unless otherwise stated, Northfield Tree Works owns the intellectual property rights for all
+      content on this website. You may not copy, reproduce, republish, sell, or redistribute any
+      material without prior written permission.
+    </p>
+
+    <h2>7. Comments & User Content</h2>
+    <p>
+      Northfield Tree Works reserves the right to monitor and remove any comments or user-generated
+      content on our platforms that are inappropriate, offensive, or violate these terms.
+    </p>
+
+    <h2>8. Content Liability</h2>
+    <p>
+      We are not responsible for content that appears on external websites linking to us. You agree to
+      defend and protect Northfield Tree Works against any claims arising from your website or digital
+      properties.
+    </p>
+
+    <h2>9. Disclaimer</h2>
+    <p>
+      To the maximum extent permitted by applicable law, Northfield Tree Works excludes all warranties,
+      representations, and conditions relating to our website and services. We are not liable for any
+      loss or damage (including, without limitation, damage for loss of business, profits, or revenue)
+      arising from the use of our website or services.
+    </p>
+
+    <h2>10. Changes to These Terms</h2>
+    <p>
+      We reserve the right to update these Terms and Conditions at any time. Changes will be posted on
+      this page with a revised "Last Updated" date. Continued use of our website or services
+      constitutes acceptance of the updated terms.
+    </p>
+
+    <h2>11. Contact Information</h2>
+    <p>For questions about these Terms and Conditions, please contact us:</p>
+    <div class="contact-block">
+      <p><strong>Company:</strong> Northfield Tree Works</p>
+      <p><strong>Address:</strong> 273 Nottingham Terrace, Buffalo, NY 14216</p>
+      <p><strong>Phone:</strong> <a href="tel:7164123623">(716) 412-3623</a></p>
+    </div>
   </main>
 
-  <footer>
-    &copy; 2026 Northfield Tree Works. All rights reserved.
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-col brand-col">
+        <div class="brand-row">
+          <img src="/logo-icon.webp" alt="Northfield Tree Works" class="logo-chip" style="height: 36px;" />
+          <span>Northfield Tree Works</span>
+        </div>
+        <p>Licensed &amp; ISA-Certified Tree Care Specialists. Serving residential and commercial properties with 24/7 storm response and precision trimming.</p>
+        <div class="insurance">&#128737; $2,000,000 Liability Insurance</div>
+        <div class="address">&#128205; 273 Nottingham Terrace, Buffalo, NY 14216</div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Quick Navigation</h4>
+        <ul>
+          <li><a href="/#hero">Home</a></li>
+          <li><a href="/#services">Service</a></li>
+          <li><a href="/#gallery">Gallery</a></li>
+          <li><a href="/#about">About Us</a></li>
+          <li><a href="/#contact">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Service Regions</h4>
+        <ul>
+          <li>&#128205; Oakridge &amp; Green Valley</li>
+          <li>&#128205; Suburban Pines &amp; West Meadow</li>
+          <li>&#128205; Highland Heights &amp; Riverbend</li>
+          <li>&#128205; Greater Metro County (50mi Radius)</li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>24/7 Emergency Dispatch</h4>
+        <a class="dispatch-card" href="tel:7164123623">
+          <div class="dispatch-label">&#128308; RAPID DISPATCH HOTLINE</div>
+          <div class="dispatch-number">(716) 412-3623</div>
+          <div class="dispatch-sub">Dispatched in under 60 minutes</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 Northfield Tree Works. All rights reserved.</p>
+      <div>
+        <a href="/privacy-policy.html">Privacy Policy</a> &bull;
+        <a href="/terms-of-service.html">Terms of Service</a> &bull;
+        <a href="#isa">ISA Arborist #62910</a>
+      </div>
+    </div>
   </footer>
 </body>
 </html>

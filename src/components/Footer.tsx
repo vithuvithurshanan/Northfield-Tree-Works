@@ -1,5 +1,6 @@
 import React from 'react';
-import { Trees, Phone, Mail, MapPin, ShieldCheck, Award } from 'lucide-react';
+import { MapPin, ShieldCheck } from 'lucide-react';
+import logoIcon from '../assets/images/logo-icon.webp';
 
 export const Footer: React.FC = () => {
   return (
@@ -8,11 +9,9 @@ export const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-white/10">
           {/* Brand Info */}
           <div className="space-y-4">
-            <div className="flex items-center gap-2.5">
-              <div className="w-10 h-10 rounded-2xl bg-[#A3E635] text-[#064E3B] flex items-center justify-center font-bold shadow-lg shadow-[#A3E635]/20">
-                <Trees className="w-6 h-6 text-[#064E3B]" />
-              </div>
-              <span className="text-2xl font-black text-white tracking-tight">Northfield Tree Works</span>
+            <div className="flex items-center gap-2">
+              <img src={logoIcon} alt="Northfield Tree Works" className="h-10 w-auto drop-shadow-lg" />
+              <span className="text-xl font-black text-white tracking-tight">Northfield Tree Works</span>
             </div>
             <p className="text-xs text-gray-300 leading-relaxed">
               Licensed & ISA-Certified Tree Care Specialists. Serving residential and commercial properties with 24/7 storm response and precision trimming.
@@ -20,6 +19,10 @@ export const Footer: React.FC = () => {
             <div className="flex items-center gap-2 text-xs text-[#A3E635] font-semibold">
               <ShieldCheck className="w-4 h-4 text-[#A3E635]" />
               <span>$2,000,000 Liability Insurance</span>
+            </div>
+            <div className="flex items-center gap-2 text-xs text-gray-300">
+              <MapPin className="w-4 h-4 text-[#A3E635] shrink-0" />
+              <span>273 Nottingham Terrace, Buffalo, NY 14216</span>
             </div>
           </div>
 
@@ -50,14 +53,14 @@ export const Footer: React.FC = () => {
           <div className="space-y-3">
             <h4 className="text-xs font-bold uppercase tracking-wider text-white">24/7 Emergency Dispatch</h4>
             <a
-              href="tel:5558733328"
+              href="tel:7164123623"
               className="p-4 rounded-2xl glass border border-white/20 text-white block hover:border-[#A3E635] transition-all group"
             >
               <div className="flex items-center gap-2 text-red-300 text-xs font-bold">
                 <span className="w-2 h-2 rounded-full bg-red-500 animate-ping" />
                 <span>RAPID DISPATCH HOTLINE</span>
               </div>
-              <p className="text-lg font-black text-[#A3E635] mt-1 group-hover:scale-105 transition-transform">(555) 873-3328</p>
+              <p className="text-lg font-black text-[#A3E635] mt-1 group-hover:scale-105 transition-transform">(716) 412-3623</p>
               <p className="text-[10px] text-gray-300 mt-0.5">Dispatched in under 60 minutes</p>
             </a>
           </div>
@@ -70,8 +73,7 @@ export const Footer: React.FC = () => {
             <a href="/privacy-policy.html" className="hover:text-white">Privacy Policy</a>
             <span>&bull;</span>
             <a href="/terms-of-service.html" className="hover:text-white">Terms of Service</a>
-            <span>&bull;</span>
-            <a href="#isa" className="hover:text-white">ISA Arborist #62910</a>
+        
           </div>
         </div>
       </div>

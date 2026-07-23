@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Trees, Phone, Sun, Moon, Menu, X, Home, Image, Scissors, Info, Sparkles, Compass, Layout, Disc, ChevronRight } from 'lucide-react';
+import { Trees, Phone, Sun, Moon, Menu, X, Home, Image, Scissors, Info, Sparkles, ChevronRight } from 'lucide-react';
 import { ThemeMode } from '../types';
+import logoIcon from '../assets/images/logo-icon.webp';
 
 interface NavbarProps {
   theme: ThemeMode;
@@ -145,24 +146,21 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, onToggleTheme, activeSect
             className="flex items-center gap-2.5 group focus:outline-none rounded-xl shrink-0"
             id="nav-logo"
           >
-            <div className="w-10 h-10 rounded-xl bg-[#A3E635] text-[#064E3B] flex items-center justify-center shadow-lg shadow-[#A3E635]/20 group-hover:scale-105 transition-transform font-bold">
-              <Trees className="w-6 h-6 text-[#064E3B]" />
-            </div>
-            <div>
-              <span className="text-xl sm:text-2xl font-extrabold tracking-tight uppercase text-white">
-                Northfield <span className="text-[#A3E635]">Tree Works</span>
-              </span>
-              <span className="hidden sm:block text-[10px] font-bold tracking-widest text-[#A3E635] uppercase">
-                Precision Arboriculture
-              </span>
-            </div>
+            <img
+              src={logoIcon}
+              alt="Northfield Tree Works"
+              className="h-11 sm:h-12 w-auto drop-shadow-lg group-hover:scale-105 transition-transform"
+            />
+            <span className="hidden sm:block text-[10px] font-bold tracking-widest text-[#A3E635] uppercase">
+              Northfield Tree Service
+            </span>
           </a>
 
 
           {/* Right Header Controls */}
           <div className="flex items-center gap-2 sm:gap-3 shrink-0">
             <a
-              href="tel:5558733328"
+              href="tel:7164123623"
               className="hidden lg:flex items-center gap-2 px-3.5 py-2 rounded-xl glass text-[#A3E635] hover:bg-white/15 border border-[#A3E635]/30 transition-all text-xs font-bold shadow-md"
               title="24/7 Emergency Tree Hotline"
               id="nav-call-btn"
@@ -172,7 +170,7 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, onToggleTheme, activeSect
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#A3E635]"></span>
               </span>
               <Phone className="w-3.5 h-3.5 text-[#A3E635]" />
-              <span>(555) 873-3328</span>
+              <span>(716) 412-3623</span>
             </a>
 
             {/* Dark/Light Mode Toggle */}

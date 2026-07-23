@@ -1,5 +1,6 @@
 import React from 'react';
 import { Trees, ShieldCheck, Zap, Phone, Calculator, ArrowDownCircle, Award, Star } from 'lucide-react';
+import heroImg from '../assets/images/hero_tree_nature_1784729516064.jpg';
 
 export const Hero: React.FC = () => {
   const scrollToSection = (id: string) => {
@@ -12,7 +13,7 @@ export const Hero: React.FC = () => {
       {/* Hero Background Backdrop with Parallax Layering */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/src/assets/images/hero_tree_nature_1784729516064.jpg"
+          src={heroImg}
           alt="Majestic Oak Tree Nature Background"
           className="w-full h-full object-cover object-center scale-105 transition-transform duration-1000 ease-out"
           referrerPolicy="no-referrer"
@@ -69,7 +70,7 @@ export const Hero: React.FC = () => {
           </button>
 
           <a
-            href="tel:5558733328"
+            href="tel:7164123623"
             className="glass text-red-300 border border-red-500/30 hover:bg-red-500/20 px-6 py-4 rounded-xl font-bold text-base hover:scale-105 transition-all flex items-center gap-2"
             id="hero-emergency-call"
           >
