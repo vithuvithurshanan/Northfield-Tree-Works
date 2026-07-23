@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  }
+
+  body {
+    background-color: #064e3b;
+    color: #f8fafc;
+  }
+}
+
+/* Frosted Glass design theme utilities */
+.glass {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.glass-dark {
+  background: rgba(6, 78, 59, 0.45);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(163, 230, 53, 0.2);
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dark .glass-panel {
+  background: rgba(6, 78, 59, 0.55);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(163, 230, 53, 0.2);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.dark .glass-card {
+  background: rgba(15, 30, 24, 0.6);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(163, 230, 53, 0.15);
+}
+
+.tree-gradient {
+  background: linear-gradient(135deg, #064E3B 0%, #1a3a2a 100%);
+}
+
+.mesh-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  background-image: radial-gradient(at 0% 0%, hsla(145, 60%, 15%, 1) 0, transparent 50%), radial-gradient(at 100% 100%, hsla(25, 40%, 10%, 1) 0, transparent 50%);
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+/* Custom Lime Accent Helpers */
+.text-lime-accent {
+  color: #A3E635;
+}
+
+.bg-lime-accent {
+  background-color: #A3E635;
+}
+
+.btn-lime {
+  background-color: #A3E635;
+  color: #064E3B;
+  font-weight: 700;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-lime:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -5px rgba(163, 230, 53, 0.4);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(6, 78, 59, 0.3);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(163, 230, 53, 0.4);
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(163, 230, 53, 0.8);
+}
+

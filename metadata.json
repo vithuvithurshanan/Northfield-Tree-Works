@@ -1,0 +1,6 @@
+{
+  "name": "Northfield Tree Works",
+  "description": "Professional tree trimming, removal, and arborist services with interactive scroll parallax tree cut animation, glassmorphism contact form, dark mode toggle, and instant quote estimator.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
