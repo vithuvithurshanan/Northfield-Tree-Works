@@ -16,8 +16,8 @@ export const Hero: React.FC = () => {
           src={heroImg}
           alt="Majestic Oak Tree Nature Background"
           className="w-full h-full object-cover object-center scale-105 transition-transform duration-1000 ease-out"
-          width="1920"
-          height="1080"
+          width="1376"
+          height="768"
           fetchPriority="high"
           loading="eager"
           decoding="async"
