@@ -1,11 +1,11 @@
 import React from 'react';
 import { Trees, ShieldCheck, Zap, Phone, Calculator, ArrowDownCircle, Award, Star } from 'lucide-react';
+import { smoothScrollTo } from '../utils/smoothScroll';
 import heroImg from '../assets/images/hero_tree_nature_1784729516064.webp';
 
 export const Hero: React.FC = () => {
   const scrollToSection = (id: string) => {
-    const el = document.querySelector(id);
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
+    smoothScrollTo(id);
   };
 
   return (

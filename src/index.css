@@ -5,12 +5,38 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    /* Anchor jumps (footer / plain # links) land below the fixed navbar
+       instead of hidden underneath it. Matches HEADER_OFFSET in smoothScroll.ts. */
+    scroll-padding-top: 88px;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   }
 
   body {
     background-color: #064e3b;
     color: #f8fafc;
+    /* Smoother momentum scrolling + crisper text during motion */
+    -webkit-overflow-scrolling: touch;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    /* Stop scroll from chaining to the browser / page behind overlays */
+    overscroll-behavior-y: none;
+  }
+
+  /* Respect users who prefer less motion: kill smooth-scroll + animations */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
   }
 }
 

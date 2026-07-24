@@ -1,6 +1,7 @@
 import React, { useState, useEffect, lazy, Suspense, useRef } from 'react';
 import { ThemeMode } from './types';
 import { getCache, setCache, THEME_CACHE_KEY } from './utils/cache';
+import { smoothScrollTo } from './utils/smoothScroll';
 import { NatureBackgroundCanvas } from './components/NatureBackgroundCanvas';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
@@ -108,10 +109,7 @@ export default function App() {
   };
 
   const handleSelectServiceForQuote = (_serviceTitle: string) => {
-    const contactEl = document.querySelector('#contact');
-    if (contactEl) {
-      contactEl.scrollIntoView({ behavior: 'smooth' });
-    }
+    smoothScrollTo('#contact');
   };
 
   return (

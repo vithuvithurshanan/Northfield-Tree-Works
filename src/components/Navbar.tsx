@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Trees, Phone, Sun, Moon, Menu, X, Home, Image, Scissors, Info, Sparkles, ChevronRight } from 'lucide-react';
 import { ThemeMode } from '../types';
+import { smoothScrollTo } from '../utils/smoothScroll';
 import logoIcon from '../assets/images/logo-icon-128.webp';
 
 interface NavbarProps {
@@ -46,8 +47,11 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, onToggleTheme, activeSect
       // Dynamic continuous rotation physics based on scroll depth (zero forced reflow)
       if (cachedScrollableHeight > 0) {
         const progress = Math.min(Math.max(currentScrollY / cachedScrollableHeight, 0), 1);
-        // Map scroll progress (0 to 1) to rotate the arc wheel links smoothly from +60 deg down to -60 deg
-        const rotationDegrees = 60 - progress * 120;
+        // The nav items already fill the arc from -60deg to +60deg, so any large
+        // rotation shoves the end items past the arc's edge where cos() squeezes
+        // them together and they visually bunch/overlap. Keep the sway subtle
+        // (+12deg -> -12deg) so every item stays inside the clean arc zone.
+        const rotationDegrees = 12 - progress * 24;
         setWheelRotation(rotationDegrees);
       }
 
@@ -125,10 +129,7 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, onToggleTheme, activeSect
     e.preventDefault();
     setIsNavOpenMobile(false);
     setIsRadialExpanded(false);
-    const targetEl = document.querySelector(href);
-    if (targetEl) {
-      targetEl.scrollIntoView({ behavior: 'smooth' });
-    }
+    smoothScrollTo(href);
   };
 
   // Find active link index for dock slider position
@@ -271,12 +272,20 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, onToggleTheme, activeSect
                 const xPos = radius * Math.cos(radAngle);
                 const yPos = radius * Math.sin(radAngle);
 
+                // Safety net: if an item ever drifts toward the arc extremes
+                // (where neighbours would start to bunch), gently fade + shrink
+                // it so overlap is never visible.
+                const edge = Math.min(Math.max((Math.abs(effectiveAngle) - 60) / 20, 0), 1);
+                const itemOpacity = 1 - edge * 0.5;
+                const itemScale = 1 - edge * 0.12;
+
                 return (
                   <div
                     key={link.name}
                     className="absolute left-0 flex items-center transition-all duration-300 pointer-events-auto"
                     style={{
-                      transform: `translate(${xPos}px, ${yPos}px) translateY(-50%)`,
+                      transform: `translate(${xPos}px, ${yPos}px) translateY(-50%) scale(${itemScale})`,
+                      opacity: itemOpacity,
                     }}
                   >
                     <a
