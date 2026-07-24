@@ -1,15 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { ThemeMode } from './types';
 import { getCache, setCache, THEME_CACHE_KEY } from './utils/cache';
 import { NatureBackgroundCanvas } from './components/NatureBackgroundCanvas';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
-import { ServicesSection } from './components/ServicesSection';
-import { BeforeAfterShowcase } from './components/BeforeAfterShowcase';
-import { AboutSection } from './components/AboutSection';
-import { GlassContactForm } from './components/GlassContactForm';
-import { Footer } from './components/Footer';
 import { WhatsAppFloatingButton } from './components/WhatsAppFloatingButton';
+
+// Lazy-load all below-fold components to reduce initial JS bundle parse time
+const ServicesSection = lazy(() => import('./components/ServicesSection').then(m => ({ default: m.ServicesSection })));
+const BeforeAfterShowcase = lazy(() => import('./components/BeforeAfterShowcase').then(m => ({ default: m.BeforeAfterShowcase })));
+const ParallaxTreeCut = lazy(() => import('./components/ParallaxTreeCut').then(m => ({ default: m.ParallaxTreeCut })));
+const QuoteCalculator = lazy(() => import('./components/QuoteCalculator').then(m => ({ default: m.QuoteCalculator })));
+const ReviewsSection = lazy(() => import('./components/ReviewsSection').then(m => ({ default: m.ReviewsSection })));
+const AboutSection = lazy(() => import('./components/AboutSection').then(m => ({ default: m.AboutSection })));
+const GlassContactForm = lazy(() => import('./components/GlassContactForm').then(m => ({ default: m.GlassContactForm })));
+const TreeHealthDiagnosis = lazy(() => import('./components/TreeHealthDiagnosis').then(m => ({ default: m.TreeHealthDiagnosis })));
+const Footer = lazy(() => import('./components/Footer').then(m => ({ default: m.Footer })));
 
 export default function App() {
   const [theme, setTheme] = useState<ThemeMode>(() => {
@@ -83,17 +89,25 @@ export default function App() {
       {/* Sticky Glassmorphism Navigation Header */}
       <Navbar theme={theme} onToggleTheme={toggleTheme} activeSection={activeSection} />
 
-      {/* Main Sections */}
+      {/* Main Sections — below-fold components are lazy-loaded */}
       <main className="relative z-10">
         <Hero />
-        <ServicesSection onSelectServiceForQuote={handleSelectServiceForQuote} />
-        <BeforeAfterShowcase />
-        <AboutSection />
-        <GlassContactForm />
+        <Suspense fallback={<div />}>
+          <ServicesSection onSelectServiceForQuote={handleSelectServiceForQuote} />
+          <BeforeAfterShowcase />
+          <ParallaxTreeCut />
+          <QuoteCalculator />
+          <ReviewsSection />
+          <TreeHealthDiagnosis />
+          <AboutSection />
+          <GlassContactForm />
+        </Suspense>
       </main>
 
       {/* Footer */}
-      <Footer />
+      <Suspense fallback={<div />}>
+        <Footer />
+      </Suspense>
 
       {/* Floating WhatsApp Action Button */}
       <WhatsAppFloatingButton />

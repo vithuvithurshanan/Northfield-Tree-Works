@@ -206,13 +206,16 @@ export const ParallaxTreeCut: React.FC = () => {
         <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
           {/* Deep Forest Sky Image */}
           <img
-            src="https://images.unsplash.com/photo-1511497584788-876761c11969?auto=format&fit=crop&w=2000&q=80"
+            src="https://images.unsplash.com/photo-1511497584788-876761c11969?auto=format&fm=webp&fit=crop&w=1600&q=65"
             alt="Forest Background"
             className="absolute inset-0 w-full h-full object-cover opacity-25 scale-110 transition-transform duration-300"
             style={{
               transform: `translateY(${-scrollProgress * 60}px) scale(1.08)`,
             }}
-            referrerPolicy="no-referrer"
+            loading="lazy"
+            decoding="async"
+            width="1600"
+            height="900"
           />
 
           {/* Sunlight Rays Overlay */}

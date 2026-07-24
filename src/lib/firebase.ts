@@ -1,5 +1,4 @@
 import { initializeApp } from 'firebase/app';
-import { getAnalytics } from 'firebase/analytics';
 
 // Firebase web config is safe to expose client-side — access is governed by
 // Firebase Security Rules and API key restrictions, not by hiding these values.
@@ -14,4 +13,20 @@ const firebaseConfig = {
 };
 
 export const firebaseApp = initializeApp(firebaseConfig);
-export const analytics = getAnalytics(firebaseApp);
+
+// Defer Analytics until the browser is idle — keeps it off the critical path
+// and eliminates the firebaseinstallations.googleapis.com chain from LCP.
+export let analytics: ReturnType<typeof import('firebase/analytics')['getAnalytics']> | null = null;
+
+const initAnalytics = async () => {
+  const { getAnalytics } = await import('firebase/analytics');
+  analytics = getAnalytics(firebaseApp);
+};
+
+if (typeof window !== 'undefined') {
+  if ('requestIdleCallback' in window) {
+    (window as any).requestIdleCallback(initAnalytics);
+  } else {
+    setTimeout(initAnalytics, 2000);
+  }
+}

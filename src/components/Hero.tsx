@@ -1,6 +1,6 @@
 import React from 'react';
 import { Trees, ShieldCheck, Zap, Phone, Calculator, ArrowDownCircle, Award, Star } from 'lucide-react';
-import heroImg from '../assets/images/hero_tree_nature_1784729516064.jpg';
+import heroImg from '../assets/images/hero_tree_nature_1784729516064.webp';
 
 export const Hero: React.FC = () => {
   const scrollToSection = (id: string) => {

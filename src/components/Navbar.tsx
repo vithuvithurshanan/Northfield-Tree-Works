@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Trees, Phone, Sun, Moon, Menu, X, Home, Image, Scissors, Info, Sparkles, ChevronRight } from 'lucide-react';
 import { ThemeMode } from '../types';
-import logoIcon from '../assets/images/logo-icon.webp';
+import logoIcon from '../assets/images/logo-icon-96.webp';
 
 interface NavbarProps {
   theme: ThemeMode;
@@ -68,7 +68,7 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, onToggleTheme, activeSect
       eyebrow: 'TREE CARE EXCELLENCE',
       title: 'Northfield Tree Works',
       desc: 'Precision arboriculture, hazard tree inspection & deep root health maintenance.',
-      img: 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=300&q=70',
+      img: 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fm=webp&fit=crop&w=260&q=60',
     },
     {
       name: 'service',
@@ -78,7 +78,7 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, onToggleTheme, activeSect
       eyebrow: 'ARBORIST SERVICES',
       title: 'Professional Tree Care',
       desc: 'Precision pruning, tree removal, stump grinding & emergency response.',
-      img: 'https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=300&q=70',
+      img: 'https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fm=webp&fit=crop&w=260&q=60',
     },
     {
       name: 'gallery',
@@ -88,7 +88,7 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, onToggleTheme, activeSect
       eyebrow: 'PROJECT SHOWCASE',
       title: 'Yard Restoration Gallery',
       desc: 'Explore before & after photos of completed arborist & tree care jobs.',
-      img: 'https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fit=crop&w=300&q=70',
+      img: 'https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fm=webp&fit=crop&w=260&q=60',
     },
     {
       name: 'about',
@@ -98,7 +98,7 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, onToggleTheme, activeSect
       eyebrow: 'LICENSED PROFESSIONALS',
       title: '15+ Years Experience',
       desc: 'Certified arborists committed to zero-damage guarantee & safety.',
-      img: 'https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=300&q=70',
+      img: 'https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fm=webp&fit=crop&w=260&q=60',
     },
     {
       name: 'contact',
@@ -108,7 +108,7 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, onToggleTheme, activeSect
       eyebrow: '24/7 EMERGENCY',
       title: 'Immediate Tree Hotline',
       desc: 'Get fast 24/7 storm damage response & free instant service estimates.',
-      img: 'https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=300&q=70',
+      img: 'https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fm=webp&fit=crop&w=260&q=60',
     },
   ];
 
