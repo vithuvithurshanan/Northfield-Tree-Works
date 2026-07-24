@@ -18,7 +18,7 @@ export const TREE_SERVICES: TreeServiceItem[] = [
     ],
     iconName: 'Scissors',
     urgencyRecommended: false,
-    image: 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fm=webp&fit=crop&w=480&q=60'
+    image: 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fm=webp&fit=crop&w=360&q=40'
   },
   {
     id: 'emergency-tree-removal',
@@ -37,7 +37,7 @@ export const TREE_SERVICES: TreeServiceItem[] = [
     ],
     iconName: 'Zap',
     urgencyRecommended: true,
-    image: 'https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fm=webp&fit=crop&w=480&q=60'
+    image: 'https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fm=webp&fit=crop&w=360&q=40'
   },
   {
     id: 'hazardous-tree-felling',
@@ -56,7 +56,7 @@ export const TREE_SERVICES: TreeServiceItem[] = [
     ],
     iconName: 'Axe',
     urgencyRecommended: false,
-    image: 'https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fm=webp&fit=crop&w=480&q=60'
+    image: 'https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fm=webp&fit=crop&w=360&q=40'
   },
   {
     id: 'stump-grinding',
@@ -75,7 +75,7 @@ export const TREE_SERVICES: TreeServiceItem[] = [
     ],
     iconName: 'Disc',
     urgencyRecommended: false,
-    image: 'https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fm=webp&fit=crop&w=480&q=60'
+    image: 'https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fm=webp&fit=crop&w=360&q=40'
   },
   {
     id: 'arborist-health-diagnosis',
@@ -94,7 +94,7 @@ export const TREE_SERVICES: TreeServiceItem[] = [
     ],
     iconName: 'Stethoscope',
     urgencyRecommended: false,
-    image: 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fm=webp&fit=crop&w=480&q=60'
+    image: 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fm=webp&fit=crop&w=360&q=40'
   },
   {
     id: 'lot-clearing-crane',
@@ -113,7 +113,7 @@ export const TREE_SERVICES: TreeServiceItem[] = [
     ],
     iconName: 'Tractor',
     urgencyRecommended: false,
-    image: 'https://images.unsplash.com/photo-1511497584788-876761c11969?auto=format&fm=webp&fit=crop&w=480&q=60'
+    image: 'https://images.unsplash.com/photo-1511497584788-876761c11969?auto=format&fm=webp&fit=crop&w=360&q=40'
   }
 ];
 

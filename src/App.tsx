@@ -38,7 +38,7 @@ const LazyViewport: React.FC<{ children: React.ReactNode; minHeight?: string }> 
           observer.disconnect();
         }
       },
-      { rootMargin: '350px' }
+      { rootMargin: '50px' }
     );
 
     observer.observe(el);

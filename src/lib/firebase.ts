@@ -1,7 +1,4 @@
-import { initializeApp } from 'firebase/app';
-
-// Firebase web config is safe to expose client-side — access is governed by
-// Firebase Security Rules and API key restrictions, not by hiding these values.
+// Dynamic Firebase initialization — keeps firebase 100% off the critical path
 const firebaseConfig = {
   apiKey: 'AIzaSyBk_152huk1H9gMxWW7BZeNi428jAGReJo',
   authDomain: 'north-feild-tree.firebaseapp.com',
@@ -12,21 +9,29 @@ const firebaseConfig = {
   measurementId: 'G-3XMZ2WFKXD',
 };
 
-export const firebaseApp = initializeApp(firebaseConfig);
+export let firebaseApp: any = null;
+export let analytics: any = null;
 
-// Defer Analytics until the browser is idle — keeps it off the critical path
-// and eliminates the firebaseinstallations.googleapis.com chain from LCP.
-export let analytics: ReturnType<typeof import('firebase/analytics')['getAnalytics']> | null = null;
+export const initFirebase = async () => {
+  if (firebaseApp) return { firebaseApp, analytics };
+  try {
+    const { initializeApp } = await import('firebase/app');
+    firebaseApp = initializeApp(firebaseConfig);
 
-const initAnalytics = async () => {
-  const { getAnalytics } = await import('firebase/analytics');
-  analytics = getAnalytics(firebaseApp);
+    const { getAnalytics } = await import('firebase/analytics');
+    analytics = getAnalytics(firebaseApp);
+  } catch (err) {
+    console.warn('Firebase lazy init note:', err);
+  }
+  return { firebaseApp, analytics };
 };
 
+// Initialize when browser is idle
 if (typeof window !== 'undefined') {
   if ('requestIdleCallback' in window) {
-    (window as any).requestIdleCallback(initAnalytics);
+    (window as any).requestIdleCallback(initFirebase);
   } else {
-    setTimeout(initAnalytics, 2000);
+    setTimeout(initFirebase, 3000);
   }
 }
+
