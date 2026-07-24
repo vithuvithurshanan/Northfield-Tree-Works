@@ -100,7 +100,8 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
                   <div className="absolute inset-0 bg-gradient-to-t from-[#064E3B] via-transparent to-transparent" />
 
                   {service.urgencyRecommended && (
-                    <span className="absolute top-3 right-3 px-3 py-1 rounded-full bg-red-600/90 text-white text-[10px] font-bold uppercase tracking-wider flex items-center gap-1 shadow-lg backdrop-blur-md">
+                    <span className="absolute top-3 right-3 px-3 py-1 rounded-full bg-red-600/90 text-white 
+                    text-[10px] font-bold uppercase tracking-wider flex items-center gap-1 shadow-lg backdrop-blur-md">
                       <Zap className="w-3 h-3 text-[#A3E635]" />
                       <span>24/7 Rapid Dispatch</span>
                     </span>
@@ -111,7 +112,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
                       <Icon className="w-5 h-5 text-[#064E3B]" />
                     </div>
                     <span className="text-white text-xs font-bold drop-shadow">
-                      From ${service.priceStartingFrom} {service.unit}
+                      
                     </span>
                   </div>
                 </div>
@@ -179,7 +180,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
                     {selectedModalService.title}
                   </h3>
                   <p className="text-xs font-bold text-emerald-600 dark:text-emerald-400">
-                    Starting from ${selectedModalService.priceStartingFrom} {selectedModalService.unit}
+                    
                   </p>
                 </div>
               </div>

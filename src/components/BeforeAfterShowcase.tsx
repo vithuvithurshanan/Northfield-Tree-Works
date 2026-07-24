@@ -25,7 +25,7 @@ export const BeforeAfterShowcase: React.FC = () => {
         <div className="relative h-[320px] sm:h-[450px] w-full rounded-2xl overflow-hidden select-none border border-white/10 shadow-inner">
           {/* After Image (Full background) */}
           <img
-            src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fm=webp&fit=crop&w=900&q=60"
+            src="https://riseonlineads.com/wp-content/uploads/2025/10/land-clearing-operation-with-heavy-machinery-transforming-a-wooded-area-15c72b0b-04ea-4ae9-8e0a-b996640e52d4.jpg"
             alt="After Professional Tree Care"
             className="absolute inset-0 w-full h-full object-cover"
             width="900"
@@ -43,7 +43,7 @@ export const BeforeAfterShowcase: React.FC = () => {
             style={{ width: `${sliderPosition}%` }}
           >
             <img
-              src="https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fm=webp&fit=crop&w=900&q=60"
+              src="https://cdn.britannica.com/98/214598-050-9879F2FA/giant-sequoia-tree-Sequoia-National-Park-California.jpg"
               alt="Before Tree Trimming"
               className="absolute top-0 left-0 h-full max-w-none object-cover"
               style={{ width: '100%', minWidth: '100%' }}

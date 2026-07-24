@@ -18,7 +18,7 @@ export const TREE_SERVICES: TreeServiceItem[] = [
     ],
     iconName: 'Scissors',
     urgencyRecommended: false,
-    image: 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fm=webp&fit=crop&w=360&q=40'
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4QdmvwEky1VjMbMzD27S5vZ6b0QeiLooYcMIdouQWd-SRcnFdlLRIixk&s=10'
   },
   {
     id: 'emergency-tree-removal',
@@ -56,7 +56,7 @@ export const TREE_SERVICES: TreeServiceItem[] = [
     ],
     iconName: 'Axe',
     urgencyRecommended: false,
-    image: 'https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fm=webp&fit=crop&w=360&q=40'
+    image: 'https://www.obersonsnursery.com/wp-content/uploads/2024/03/Obersons-Tree-Removal-Img2.jpg'
   },
   {
     id: 'stump-grinding',
@@ -94,7 +94,7 @@ export const TREE_SERVICES: TreeServiceItem[] = [
     ],
     iconName: 'Stethoscope',
     urgencyRecommended: false,
-    image: 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fm=webp&fit=crop&w=360&q=40'
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFsutOrkullxI4PRrb6MW40ZhU3QiLvZuu9v_glQliqw&s'
   },
   {
     id: 'lot-clearing-crane',
@@ -113,7 +113,7 @@ export const TREE_SERVICES: TreeServiceItem[] = [
     ],
     iconName: 'Tractor',
     urgencyRecommended: false,
-    image: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fm=webp&fit=crop&w=360&q=40'
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGOiroL7yYWVuIncnkTLqaW0TpNTEodB5A8A7RQdiuOUbGFT7OVG75prhi&s=10'
   }
 ];
 
