@@ -1,6 +1,6 @@
 import React from 'react';
 import { MapPin, ShieldCheck } from 'lucide-react';
-import logoIcon from '../assets/images/logo-icon.webp';
+import logoIcon from '../assets/images/logo-icon-128.webp';
 
 export const Footer: React.FC = () => {
   return (
@@ -10,7 +10,7 @@ export const Footer: React.FC = () => {
           {/* Brand Info */}
           <div className="space-y-4">
             <div className="flex items-center gap-2">
-              <img src={logoIcon} alt="Northfield Tree Works" className="h-10 w-auto drop-shadow-lg" />
+              <img src={logoIcon} alt="Northfield Tree Works" className="h-10 w-auto drop-shadow-lg" width="40" height="40" loading="lazy" decoding="async" />
               <span className="text-xl font-black text-white tracking-tight">Northfield Tree Works</span>
             </div>
             <p className="text-xs text-gray-300 leading-relaxed">

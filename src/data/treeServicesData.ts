@@ -113,7 +113,7 @@ export const TREE_SERVICES: TreeServiceItem[] = [
     ],
     iconName: 'Tractor',
     urgencyRecommended: false,
-    image: 'https://images.unsplash.com/photo-1511497584788-876761c11969?auto=format&fm=webp&fit=crop&w=360&q=40'
+    image: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fm=webp&fit=crop&w=360&q=40'
   }
 ];
 
