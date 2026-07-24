@@ -22,6 +22,13 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, onToggleTheme, activeSect
 
   useEffect(() => {
     let ticking = false;
+    let cachedScrollableHeight = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+
+    const updateScrollableHeight = () => {
+      cachedScrollableHeight = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+    };
+
+    window.addEventListener('resize', updateScrollableHeight, { passive: true });
 
     const updateScrollState = () => {
       const currentScrollY = window.scrollY;
@@ -36,10 +43,9 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, onToggleTheme, activeSect
       }
       lastScrollYRef.current = currentScrollY;
 
-      // Dynamic continuous rotation physics based on scroll depth
-      const totalHeight = document.body.scrollHeight - window.innerHeight;
-      if (totalHeight > 0) {
-        const progress = Math.min(Math.max(currentScrollY / totalHeight, 0), 1);
+      // Dynamic continuous rotation physics based on scroll depth (zero forced reflow)
+      if (cachedScrollableHeight > 0) {
+        const progress = Math.min(Math.max(currentScrollY / cachedScrollableHeight, 0), 1);
         // Map scroll progress (0 to 1) to rotate the arc wheel links smoothly from +60 deg down to -60 deg
         const rotationDegrees = 60 - progress * 120;
         setWheelRotation(rotationDegrees);
@@ -56,7 +62,10 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, onToggleTheme, activeSect
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', updateScrollableHeight);
+    };
   }, []);
 
   const navLinks = [

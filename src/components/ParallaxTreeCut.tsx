@@ -88,8 +88,10 @@ export const ParallaxTreeCut: React.FC = () => {
     }
   };
 
-  // Scroll listener tracking container height
+  // Scroll listener tracking container height with zero forced reflow
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
       if (!containerRef.current) return;
       const rect = containerRef.current.getBoundingClientRect();
@@ -120,11 +122,19 @@ export const ParallaxTreeCut: React.FC = () => {
       } else {
         setIsSawingActive(false);
       }
+      ticking = false;
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
+    const onScroll = () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(handleScroll);
+      }
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   // Particle generators
