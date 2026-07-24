@@ -25,10 +25,13 @@ export const BeforeAfterShowcase: React.FC = () => {
         <div className="relative h-[320px] sm:h-[450px] w-full rounded-2xl overflow-hidden select-none border border-white/10 shadow-inner">
           {/* After Image (Full background) */}
           <img
-            src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=1400&q=80"
+            src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=1200&q=70"
             alt="After Professional Tree Care"
             className="absolute inset-0 w-full h-full object-cover"
-            referrerPolicy="no-referrer"
+            width="1200"
+            height="800"
+            loading="lazy"
+            decoding="async"
           />
           <span className="absolute top-4 right-4 px-3 py-1.5 rounded-full bg-[#A3E635] text-[#064E3B] text-xs font-extrabold shadow-lg">
             AFTER: Clean & Safe Canopy
@@ -40,11 +43,14 @@ export const BeforeAfterShowcase: React.FC = () => {
             style={{ width: `${sliderPosition}%` }}
           >
             <img
-              src="https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fit=crop&w=1400&q=80"
+              src="https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fit=crop&w=1200&q=70"
               alt="Before Tree Trimming"
               className="absolute top-0 left-0 h-full max-w-none object-cover"
               style={{ width: '100%', minWidth: '100%' }}
-              referrerPolicy="no-referrer"
+              width="1200"
+              height="800"
+              loading="lazy"
+              decoding="async"
             />
             <span className="absolute top-4 left-4 px-3 py-1.5 rounded-full glass text-amber-300 text-xs font-bold shadow-lg border border-white/20">
               BEFORE: Overgrown Storm Risk

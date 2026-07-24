@@ -16,7 +16,11 @@ export const Hero: React.FC = () => {
           src={heroImg}
           alt="Majestic Oak Tree Nature Background"
           className="w-full h-full object-cover object-center scale-105 transition-transform duration-1000 ease-out"
-          referrerPolicy="no-referrer"
+          width="1920"
+          height="1080"
+          fetchPriority="high"
+          loading="eager"
+          decoding="async"
         />
         {/* Soft gradient mask for text readability in light and dark modes */}
         <div className="absolute inset-0 bg-gradient-to-b from-slate-950/70 via-slate-950/50 to-slate-950/90 dark:from-slate-950/85 dark:via-slate-950/75 dark:to-slate-950/95" />

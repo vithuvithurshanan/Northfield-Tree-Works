@@ -68,7 +68,7 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, onToggleTheme, activeSect
       eyebrow: 'TREE CARE EXCELLENCE',
       title: 'Northfield Tree Works',
       desc: 'Precision arboriculture, hazard tree inspection & deep root health maintenance.',
-      img: 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=400&q=80',
+      img: 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=300&q=70',
     },
     {
       name: 'service',
@@ -78,7 +78,7 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, onToggleTheme, activeSect
       eyebrow: 'ARBORIST SERVICES',
       title: 'Professional Tree Care',
       desc: 'Precision pruning, tree removal, stump grinding & emergency response.',
-      img: 'https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=400&q=80',
+      img: 'https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=300&q=70',
     },
     {
       name: 'gallery',
@@ -88,7 +88,7 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, onToggleTheme, activeSect
       eyebrow: 'PROJECT SHOWCASE',
       title: 'Yard Restoration Gallery',
       desc: 'Explore before & after photos of completed arborist & tree care jobs.',
-      img: 'https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fit=crop&w=400&q=80',
+      img: 'https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fit=crop&w=300&q=70',
     },
     {
       name: 'about',
@@ -98,7 +98,7 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, onToggleTheme, activeSect
       eyebrow: 'LICENSED PROFESSIONALS',
       title: '15+ Years Experience',
       desc: 'Certified arborists committed to zero-damage guarantee & safety.',
-      img: 'https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=400&q=80',
+      img: 'https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=300&q=70',
     },
     {
       name: 'contact',
@@ -108,7 +108,7 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, onToggleTheme, activeSect
       eyebrow: '24/7 EMERGENCY',
       title: 'Immediate Tree Hotline',
       desc: 'Get fast 24/7 storm damage response & free instant service estimates.',
-      img: 'https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=400&q=80',
+      img: 'https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=300&q=70',
     },
   ];
 
@@ -150,6 +150,10 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, onToggleTheme, activeSect
               src={logoIcon}
               alt="Northfield Tree Works"
               className="h-11 sm:h-12 w-auto drop-shadow-lg group-hover:scale-105 transition-transform"
+              width="48"
+              height="48"
+              loading="eager"
+              decoding="async"
             />
             <span className="hidden sm:block text-[10px] font-bold tracking-widest text-[#A3E635] uppercase">
               Northfield Tree Service
@@ -308,6 +312,10 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, onToggleTheme, activeSect
                               src={link.img}
                               alt={link.title}
                               className="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-500"
+                              width="300"
+                              height="80"
+                              loading="lazy"
+                              decoding="async"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
                           </div>
