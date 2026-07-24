@@ -26,12 +26,5 @@ export const initFirebase = async () => {
   return { firebaseApp, analytics };
 };
 
-// Initialize when browser is idle
-if (typeof window !== 'undefined') {
-  if ('requestIdleCallback' in window) {
-    (window as any).requestIdleCallback(initFirebase);
-  } else {
-    setTimeout(initFirebase, 3000);
-  }
-}
+// Firebase init helper for dynamic on-demand loading
 

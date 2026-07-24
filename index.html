@@ -2,17 +2,54 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="shortcut icon" href="/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Northfield Tree Works | Precision Tree Cutting & Removal</title>
     <meta name="description" content="Northfield Tree Works — ISA certified arborists offering precision tree trimming, emergency storm removal, stump grinding, and hazardous tree felling in Western New York. Free estimates, 24/7 hotline." />
 
-    <!-- Preconnect: top critical origins -->
-    <link rel="preconnect" href="https://link.kdlead.com" />
-    <link rel="preconnect" href="https://firebaseinstallations.googleapis.com" crossorigin="anonymous" />
-
+    <!-- Inline Critical CSS for instant FCP/LCP paint -->
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        background-color: #064e3b;
+        color: #f8fafc;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      }
+      #root {
+        min-height: 100vh;
+        background-color: #064e3b;
+      }
+    </style>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <div style="min-height: 100vh; background-color: #064E3B; color: #f8fafc; position: relative; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+        <header style="position: fixed; top: 0; left: 0; right: 0; z-index: 50; background-color: rgba(6, 78, 59, 0.8); backdrop-filter: blur(12px); padding: 0.875rem 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+          <div style="max-width: 80rem; margin: 0 auto; padding: 0 1rem; display: flex; align-items: center; justify-content: space-between;">
+            <a href="#hero" style="display: flex; align-items: center; gap: 0.625rem; text-decoration: none;">
+              <span style="font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; color: #A3E635; text-transform: uppercase;">Northfield Tree Service</span>
+            </a>
+          </div>
+        </header>
+        <main style="position: relative; z-index: 10;">
+          <section id="hero" style="position: relative; min-height: 92vh; display: flex; align-items: center; justify-content: center; padding-top: 6rem; padding-bottom: 4rem; overflow: hidden; text-align: center;">
+            <div style="position: relative; z-index: 10; max-width: 72rem; margin: 0 auto; padding: 2rem 1rem 0 1rem; text-align: center;">
+              <div style="display: inline-block; padding: 0.375rem 1rem; border-radius: 9999px; background: rgba(255, 255, 255, 0.08); color: #A3E635; font-size: 0.875rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.5rem; border: 1px solid rgba(255, 255, 255, 0.2);">
+                ISA Certified Arborists &bull; 100% Fully Insured & Licensed
+              </div>
+              <h1 style="font-size: 3rem; font-weight: 800; color: #ffffff; letter-spacing: -0.025em; line-height: 1.1; max-width: 64rem; margin: 0 auto; text-align: center; text-shadow: 0 10px 25px rgba(0,0,0,0.5);" class="text-4xl sm:text-6xl md:text-7xl font-extrabold text-white tracking-tight leading-[1.1] max-w-5xl mx-auto">
+                Precision <span style="color: #A3E635; background: linear-gradient(to right, #A3E635, #86efac); -webkit-background-clip: text; -webkit-text-fill-color: transparent;" class="text-transparent bg-clip-text bg-gradient-to-r from-[#A3E635] to-[#86efac]">Tree Cutting</span> &amp; Safe Removal.
+              </h1>
+              <p style="margin-top: 1.5rem; font-size: 1.25rem; color: #e2e8f0; max-width: 42rem; margin-left: auto; margin-right: auto; line-height: 1.625;">
+                Elite arborist services utilizing advanced laser-guided techniques for safe, seamless tree management, hazardous branch trimming, and emergency storm clearance.
+              </p>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

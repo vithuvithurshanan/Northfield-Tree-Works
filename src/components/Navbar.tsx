@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Trees, Phone, Sun, Moon, Menu, X, Home, Image, Scissors, Info, Sparkles, ChevronRight } from 'lucide-react';
 import { ThemeMode } from '../types';
-import logoIcon from '../assets/images/logo-icon-96.webp';
+import logoIcon from '../assets/images/logo-icon-128.webp';
 
 interface NavbarProps {
   theme: ThemeMode;
@@ -546,7 +546,7 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, onToggleTheme, activeSect
                 key={link.name}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
-                className="absolute flex flex-col items-center pointer-events-auto transition-all duration-300 group/mob"
+                className="absolute flex flex-col items-center justify-center pointer-events-auto transition-all duration-300 group/mob p-2 min-w-[48px] min-h-[48px]"
                 style={{
                   left: `${leftPct}%`,
                   top: `${topPct}%`,

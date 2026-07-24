@@ -16,7 +16,7 @@ export const WhatsAppFloatingButton: React.FC = () => {
   }, []);
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+    <div className="fixed bottom-24 right-4 sm:bottom-6 sm:right-6 z-50 flex flex-col items-end">
       {/* Expandable Quick Contact Widget */}
       {isOpen && (
         <div className="mb-3 w-[320px] sm:w-[360px] glass-panel bg-white/95 dark:bg-slate-900/95 border border-emerald-500/30 rounded-3xl overflow-hidden shadow-2xl animate-in slide-in-from-bottom-5 duration-200 flex flex-col max-h-[560px]">
@@ -35,7 +35,7 @@ export const WhatsAppFloatingButton: React.FC = () => {
             </div>
             <button
               onClick={() => setIsOpen(false)}
-              className="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200"
+              className="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 p-2 min-w-[44px] min-h-[44px] flex items-center justify-center"
               aria-label="Close Quick Contact"
             >
               <X className="w-4 h-4" />
@@ -74,7 +74,7 @@ export const WhatsAppFloatingButton: React.FC = () => {
       {/* Floating Toggle Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="group relative p-4 rounded-full bg-gradient-to-tr from-emerald-600 to-green-500 text-white shadow-2xl shadow-emerald-500/40 hover:scale-110 transition-transform cursor-pointer focus:outline-none focus:ring-4 focus:ring-emerald-400/50"
+        className="group relative p-4 rounded-full bg-gradient-to-tr from-emerald-600 to-green-500 text-white shadow-2xl shadow-emerald-500/40 hover:scale-110 transition-transform cursor-pointer focus:outline-none focus:ring-4 focus:ring-emerald-400/50 min-w-[56px] min-h-[56px] flex items-center justify-center"
         aria-label="Quick Contact Widget"
         id="whatsapp-floating-trigger"
       >

@@ -3,14 +3,23 @@ import {createRoot} from 'react-dom/client';
 import App from './App.tsx';
 import './index.css';
 
-// Lazy-load Firebase off the critical path after initial page interactive state
+// Completely decouple Firebase from initial navigation & LCP render.
+// Loads 10 seconds after window load or on first user interaction.
 if (typeof window !== 'undefined') {
-  const loadFirebase = () => import('./lib/firebase');
-  if ('requestIdleCallback' in window) {
-    (window as any).requestIdleCallback(loadFirebase);
-  } else {
-    setTimeout(loadFirebase, 3000);
-  }
+  let loaded = false;
+  const loadFirebase = () => {
+    if (loaded) return;
+    loaded = true;
+    import('./lib/firebase').then((m) => m.initFirebase?.());
+  };
+
+  window.addEventListener('load', () => {
+    setTimeout(loadFirebase, 10000);
+  });
+
+  ['pointerdown', 'scroll', 'keydown', 'touchstart'].forEach((event) => {
+    window.addEventListener(event, loadFirebase, { once: true, passive: true });
+  });
 }
 
 createRoot(document.getElementById('root')!).render(

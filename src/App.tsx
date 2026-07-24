@@ -9,12 +9,9 @@ import { WhatsAppFloatingButton } from './components/WhatsAppFloatingButton';
 // Lazy-load below-fold components
 const ServicesSection = lazy(() => import('./components/ServicesSection').then(m => ({ default: m.ServicesSection })));
 const BeforeAfterShowcase = lazy(() => import('./components/BeforeAfterShowcase').then(m => ({ default: m.BeforeAfterShowcase })));
-const ParallaxTreeCut = lazy(() => import('./components/ParallaxTreeCut').then(m => ({ default: m.ParallaxTreeCut })));
-const QuoteCalculator = lazy(() => import('./components/QuoteCalculator').then(m => ({ default: m.QuoteCalculator })));
 const ReviewsSection = lazy(() => import('./components/ReviewsSection').then(m => ({ default: m.ReviewsSection })));
 const AboutSection = lazy(() => import('./components/AboutSection').then(m => ({ default: m.AboutSection })));
 const GlassContactForm = lazy(() => import('./components/GlassContactForm').then(m => ({ default: m.GlassContactForm })));
-const TreeHealthDiagnosis = lazy(() => import('./components/TreeHealthDiagnosis').then(m => ({ default: m.TreeHealthDiagnosis })));
 const Footer = lazy(() => import('./components/Footer').then(m => ({ default: m.Footer })));
 
 // LazyViewport component: ONLY fetches & renders chunk when user scrolls within 350px of the section.
@@ -70,26 +67,40 @@ export default function App() {
     setCache(THEME_CACHE_KEY, theme);
   }, [theme]);
 
-  // Zero-reflow active section observer using IntersectionObserver (off main thread)
+  // Use a scroll listener that re-queries section elements dynamically.
+  // IntersectionObserver with deps=[] misses lazy-loaded sections that
+  // aren't in the DOM at mount time.
   useEffect(() => {
-    const sections = ['hero', 'services', 'gallery', 'about', 'contact'];
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
+    const sectionIds = ['hero', 'services', 'gallery', 'about', 'contact'];
+
+    const getActiveSection = () => {
+      const scrollY = window.scrollY + window.innerHeight * 0.35;
+      let current = 'hero';
+      for (const id of sectionIds) {
+        const el = document.getElementById(id);
+        if (el && el.offsetTop <= scrollY) {
+          current = id;
+        }
+      }
+      return current;
+    };
+
+    let ticking = false;
+    const handleScroll = () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(() => {
+          setActiveSection(getActiveSection());
+          ticking = false;
         });
-      },
-      { threshold: 0.3 }
-    );
+      }
+    };
 
-    sections.forEach((id) => {
-      const el = document.getElementById(id);
-      if (el) observer.observe(el);
-    });
+    // Set initial active section
+    setActiveSection(getActiveSection());
 
-    return () => observer.disconnect();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const toggleTheme = () => {
@@ -123,17 +134,8 @@ export default function App() {
         <LazyViewport minHeight="500px">
           <BeforeAfterShowcase />
         </LazyViewport>
-        <LazyViewport minHeight="800px">
-          <ParallaxTreeCut />
-        </LazyViewport>
-        <LazyViewport minHeight="400px">
-          <QuoteCalculator />
-        </LazyViewport>
         <LazyViewport minHeight="400px">
           <ReviewsSection />
-        </LazyViewport>
-        <LazyViewport minHeight="400px">
-          <TreeHealthDiagnosis />
         </LazyViewport>
         <LazyViewport minHeight="500px">
           <AboutSection />
